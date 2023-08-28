@@ -15,12 +15,6 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Home', [
-        'name' => 'Rheanne Mcintosh',
-        'frameworks' => [
-            'Laravel',
-            'Vue',
-            'Inertia'
-        ]
-    ]);
+    return Inertia::render('Home');
+});
 });
