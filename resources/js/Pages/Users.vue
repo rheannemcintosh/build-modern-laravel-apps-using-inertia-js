@@ -1,25 +1,8 @@
 <script setup>
-    import { Link } from '@inertiajs/vue3'
+    import Nav from '../Shared/Nav.vue';
 </script>
 
 <template>
     <h1>Users</h1>
-
-    <nav>
-        <ul>
-            <li>
-                <Link href="/">Home</Link>
-            </li>
-
-            <li>
-                <Link href="/users">Users</Link>
-            </li>
-
-            <li>
-                <Link href="/settings">Settings</Link>
-            </li>
-        </ul>
-    </nav>
+    <Nav />
 </template>
-
-
