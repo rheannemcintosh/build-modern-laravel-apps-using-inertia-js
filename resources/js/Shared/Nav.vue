@@ -13,6 +13,7 @@
             </li>
             <li>
                 <Link href="/settings">Settings</Link>
+                <Link href="/logout" method="post" as="button" class="text-blue-500 hover:underline">Log Out</Link>
             </li>
         </ul>
     </nav>
