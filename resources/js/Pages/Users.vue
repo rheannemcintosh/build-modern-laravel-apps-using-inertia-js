@@ -1,5 +1,9 @@
 <script setup>
     import Nav from '../Shared/Nav.vue';
+
+    const props = defineProps({
+        time: String,
+    })
 </script>
 
 <template>
