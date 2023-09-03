@@ -1,7 +1,7 @@
 <script setup>
     import Layout from '../Shared/Layout.vue';
 
-    const props = defineProps({
+    defineProps({
         time: String,
     })
 </script>
