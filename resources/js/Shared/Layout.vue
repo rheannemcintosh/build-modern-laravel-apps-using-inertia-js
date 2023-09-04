@@ -1,8 +1,13 @@
 <script setup>
+    import { Head } from '@inertiajs/vue3';
     import Nav from './Nav.vue';
+
 </script>
 
 <template>
+    <Head>
+        <title>My App</title>
+    </Head>
     <section class="p-6 bg-gray-200">
         <header class="flex justify-between">
             <div class="flex items-center">
