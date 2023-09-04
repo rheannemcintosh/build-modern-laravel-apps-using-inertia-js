@@ -23,4 +23,6 @@ createInertiaApp({
         color: '#FF8400',
         showSpinner: true,
     },
+
+    title: title => `My App | ${title}`
 })
