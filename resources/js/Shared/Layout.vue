@@ -4,7 +4,6 @@
 
 <template>
     <Head>
-        <title>My App</title>
         <meta type="description" contents="Information About My App" head-key="description">
     </Head>
     <section class="p-6 bg-gray-200">
