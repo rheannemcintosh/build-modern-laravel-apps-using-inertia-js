@@ -1,7 +1,7 @@
 import './bootstrap';
 
 import { createApp, h } from 'vue'
-import {createInertiaApp, Link} from '@inertiajs/vue3'
+import {createInertiaApp, Link, Head} from '@inertiajs/vue3'
 import Layout from "./Shared/Layout.vue";
 
 createInertiaApp({
@@ -17,10 +17,13 @@ createInertiaApp({
         createApp({ render: () => h(App, props) })
             .use(plugin)
             .component('Link', Link)
+            .component('Head', Head)
             .mount(el)
     },
     progress: {
         color: '#FF8400',
         showSpinner: true,
     },
+
+    title: title => `My App | ${title}`
 })
