@@ -1,7 +1,5 @@
 <script setup>
-    import { Head } from '@inertiajs/vue3';
     import Nav from './Nav.vue';
-
 </script>
 
 <template>
