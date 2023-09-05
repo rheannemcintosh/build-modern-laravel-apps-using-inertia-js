@@ -1,6 +1,7 @@
 <script setup>
     defineProps({
         time: String,
+        users: Array
     });
 </script>
 
@@ -17,4 +18,12 @@
             Refresh
         </Link>
     </div>
+    <ul>
+        <li
+            v-for="user in users"
+            :key="user.id"
+            v-text="user.name"
+        />
+    </ul>
+
 </template>
