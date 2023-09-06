@@ -1,4 +1,6 @@
 <script setup>
+    import Pagination from "../Shared/Pagination.vue";
+
     defineProps({
         users: Object
     });
@@ -43,14 +45,5 @@
         </div>
     </div>
 
-    <div class="mt-6">
-        <Component
-            :is="link.url ? 'Link' : 'span'"
-            v-for="link in users.links"
-            :href="link.url"
-            v-html="link.label"
-            class="px-1"
-            :class="link.url ? '' : 'text-gray-400'"
-        />
-    </div>
+    <Pagination :links="users.links" class="mt-6" />
 </template>
