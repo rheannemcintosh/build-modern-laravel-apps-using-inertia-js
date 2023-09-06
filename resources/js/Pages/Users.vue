@@ -1,6 +1,6 @@
 <script setup>
     defineProps({
-        users: Array
+        users: Object
     });
 </script>
 
@@ -17,7 +17,7 @@
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                     <table class="min-w-full divide-y divide-gray-200">
                         <tbody class="bg-white divide-y divide-gray-200">
-                            <tr v-for="user in users" :key="user.id">
+                            <tr v-for="user in users.data" :key="user.id">
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
                                         <div>
@@ -41,5 +41,16 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="mt-6">
+        <Component
+            :is="link.url ? 'Link' : 'span'"
+            v-for="link in users.links"
+            :href="link.url"
+            v-html="link.label"
+            class="px-1"
+            :class="link.url ? '' : 'text-gray-400'"
+        />
     </div>
 </template>
