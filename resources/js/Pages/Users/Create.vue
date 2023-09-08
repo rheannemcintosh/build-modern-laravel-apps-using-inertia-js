@@ -17,7 +17,10 @@
     let submit = () => {
         processing.value = true;
 
-        router.post('/users', form);
+        router.post('/users', form, {
+            onStart: () => { processing.value = true },
+            onFinish: () => { processing.value = false }
+        });
     }
 </script>
 
