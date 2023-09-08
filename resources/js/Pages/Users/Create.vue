@@ -39,6 +39,7 @@
                 id="name"
                 required
             >
+            <div v-if="$page.props.errors.name" v-text="$page.props.errors.name" class="text-red-500 text-xs mt-1"></div>
         </div>
         <div class="mb-6">
             <label
@@ -56,6 +57,7 @@
                 id="email"
                 required
             >
+            <div v-if="$page.props.errors.email" v-text="$page.props.errors.email" class="text-red-500 text-xs mt-1"></div>
         </div>
         <div class="mb-6">
             <label
@@ -73,6 +75,7 @@
                 id="password"
                 required
             >
+            <div v-if="$page.props.errors.password" v-text="$page.props.errors.password" class="text-red-500 text-xs mt-1"></div>
         </div>
 
         <div class="mb-6">
