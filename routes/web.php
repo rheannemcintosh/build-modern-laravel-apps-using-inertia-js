@@ -36,6 +36,21 @@ Route::get('/users', function () {
     ]);
 });
 
+Route::post('/users', function () {
+    // Validate the request
+    $attributes = Request::validate([
+        'name' => 'required',
+        'email' => ['required', 'email'],
+        'password' => 'required'
+    ]);
+
+    //Create the user
+    User::create($attributes);
+
+    // Redirect
+    return redirect('/users');
+});
+
 Route::get('/users/create', function () {
     return Inertia::render('Users/Create');
 });
