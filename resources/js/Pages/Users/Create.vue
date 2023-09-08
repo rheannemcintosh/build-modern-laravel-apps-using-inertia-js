@@ -1,5 +1,5 @@
 <script setup>
-    import { reactive } from "vue";
+    import { reactive, ref } from "vue";
     import { router } from "@inertiajs/vue3";
 
     defineProps({
@@ -12,7 +12,11 @@
         password: ''
     });
 
+    let processing = ref(false);
+
     let submit = () => {
+        processing.value = true;
+
         router.post('/users', form);
     }
 </script>
@@ -86,6 +90,7 @@
             <button
                 type="submit"
                 class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500"
+                :disabled="processing"
             >
                 Submit
             </button>
