@@ -30,7 +30,14 @@
                 </NavLink>
             </li>
             <li>
-                <Link href="/logout" method="post" as="button" class="text-blue-500 hover:underline">Log Out</Link>
+                <NavLink
+                    href="/logout"
+                    method="post"
+                    as="button"
+                    class="text-blue-500 hover:underline"
+                >
+                    Log Out
+                </NavLink>
             </li>
         </ul>
     </nav>

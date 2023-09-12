@@ -11,7 +11,7 @@
             <div class="flex items-center">
                 <h1 class="font-bold text-lg">My App</h1>
 
-                <p class="text-sm ml-4">ß
+                <p class="text-sm ml-4">
                     Welcome Back, {{ $page.props.auth.user.username }}!
                 </p>
             </div>
