@@ -10,7 +10,7 @@
         form.post('/login');
     };
 
-    defineProps({
+    defineOptions({
         layout: null,
     });
 </script>
