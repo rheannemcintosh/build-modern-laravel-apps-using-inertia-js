@@ -35,9 +35,15 @@ Route::middleware('auth')->group(function() {
                 ->withQueryString()
                 ->through(fn($user) => [
                     'id' => $user->id,
-                    'name' => $user->name
+                    'name' => $user->name,
+                    'can' => [
+                        'update' => Auth::user()->can('update', $user)
+                    ]
                 ]),
-            'filters' => Request::only(['search'])
+            'filters' => Request::only(['search']),
+            'can' => [
+                'createUser' => Auth::user()->can('create', User::class)
+            ]
         ]);
     });
 
@@ -58,7 +64,7 @@ Route::middleware('auth')->group(function() {
 
     Route::get('/users/create', function () {
         return Inertia::render('Users/Create');
-    });
+    })->can('create', 'App\Models\User');
 
     Route::get('/settings', function () {
         return Inertia::render('Settings', [
