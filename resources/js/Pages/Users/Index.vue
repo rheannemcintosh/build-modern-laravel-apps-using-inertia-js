@@ -6,7 +6,8 @@
 
     let props = defineProps({
         users: Object,
-        filters: Object
+        filters: Object,
+        can: Object
     });
 
     let search = ref(props.filters.search);
@@ -30,7 +31,13 @@
         <div class="flex items-center">
             <h1 class="text-3xl">Users</h1>
 
-            <Link href="/users/create" class="text-blue-500 text-sm ml-4">New User</Link>
+            <Link
+                v-if="can.createUser"
+                href="/users/create"
+                class="text-blue-500 text-sm ml-4"
+            >
+                New User
+            </Link>
         </div>
 
         <input v-model="search" type="text" placeholder="Search..." class="border px-2 rounded-lg" />
@@ -43,7 +50,10 @@
                     <table class="min-w-full divide-y divide-gray-200">
                         <tbody class="bg-white divide-y divide-gray-200">
                             <tr v-for="user in users.data" :key="user.id">
-                                <td class="px-6 py-4 whitespace-nowrap">
+                                <td
+
+                                    class="px-6 py-4 whitespace-nowrap"
+                                >
                                     <div class="flex items-center">
                                         <div>
                                             <div class="text-sm font-medium text-gray-900">
@@ -54,6 +64,7 @@
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                     <Link
+                                        v-if="user.can.update"
                                         :href="`/users/${user.id}/edit`"
                                         class="text-indigo-600 hover:text-indigo-900"
                                     >
