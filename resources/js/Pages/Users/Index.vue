@@ -1,8 +1,12 @@
 <script setup>
-    import Pagination from "@/Shared/Pagination.vue";
-    import { ref, watch } from "vue";
+    import { ref, watch, defineAsyncComponent } from "vue";
     import { router } from "@inertiajs/vue3";
     import debounce from "lodash/debounce.js";
+
+
+    let Pagination = defineAsyncComponent(() => {
+        return import("@/Shared/Pagination.vue");
+    })
 
     let props = defineProps({
         users: Object,
