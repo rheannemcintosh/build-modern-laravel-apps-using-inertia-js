@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -27,19 +28,13 @@ Route::middleware('auth')->group(function() {
 
     Route::get('/users', function () {
         return Inertia::render('Users/Index', [
-            'users' => User::query()
-                ->when(Request::input('search'), function ($query, $search) {
-                    $query->where('name', 'like', "%{$search}%");
-                })
-                ->paginate(10)
-                ->withQueryString()
-                ->through(fn($user) => [
-                    'id' => $user->id,
-                    'name' => $user->name,
-                    'can' => [
-                        'update' => Auth::user()->can('update', $user)
-                    ]
-                ]),
+            'users' => UserResource::collection(
+                User::query()
+                    ->when(Request::input('search'), function ($query, $search) {
+                        $query->where('name', 'like', "%{$search}%");
+                    })
+                    ->paginate(10)
+                    ->withQueryString()),
             'filters' => Request::only(['search']),
             'can' => [
                 'createUser' => Auth::user()->can('create', User::class)
