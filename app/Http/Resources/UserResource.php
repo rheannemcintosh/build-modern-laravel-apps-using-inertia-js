@@ -18,9 +18,13 @@ class UserResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'created_at' => $this->created_at,
             'email' => $this->when(Auth::user()->is($this->resource), $this->email),
             'can' => [
                 'update' => Auth::user()->can('update', $this->resource)
+            ],
+            'links' => [
+                'profile' => url('/profiles/' . $this->id)
             ]
         ];
     }
