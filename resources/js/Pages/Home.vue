@@ -1,10 +1,8 @@
 <script>
-// import {highlightAll} from "@/Services/SyntaxHighlighing.js";
 import {highlight} from "@/Services/SyntaxHighlighing.js";
 
 export default {
     mounted() {
-        // highlightAll();
         highlight('#example2');
     }
 };

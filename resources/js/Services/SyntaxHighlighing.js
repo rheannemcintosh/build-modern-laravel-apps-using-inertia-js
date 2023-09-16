@@ -8,11 +8,13 @@ import "highlight.js/styles/github-dark.css";
 hljs.registerLanguage("php", php);
 hljs.registerLanguage("javascript", javascript);
 
-export function highlightAll() {
-    hljs.highlightAll();
-}
-
 export function highlight(selector) {
+    if (! selector) {
+        hljs.highlightAll();
+
+        return;
+    }
+
     document.querySelectorAll(selector + ' pre code').forEach(element => {
         hljs.highlightElement(element);
     });
