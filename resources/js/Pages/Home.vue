@@ -1,14 +1,3 @@
-<script>
-import {highlightElement} from "@/Services/SyntaxHighlighing.js";
-
-export default {
-    mounted() {
-        highlightElement(this.$refs.code);
-    }
-};
-
-</script>
-
 <template>
     <Head>
         <title>Home</title>
@@ -17,31 +6,20 @@ export default {
 
     <h1 class="text-3xl">Home</h1>
 
-    <pre>
-        <code>
-            class Example
-            {
-                public function __construct()
-                {
-                    //
-                }
-            }
-        </code>
-    </pre>
-
-    <br>
-
-    <div id="example2">
-        <pre>
-            <code ref="code">
-                class ExampleTwo
-                {
-                    public function __construct()
-                    {
-                        //
-                    }
-                }
-            </code>
-        </pre>
-    </div>
+    <Highlight :code="snippet" />
 </template>
+
+<script setup>
+    import Highlight from "@/Components/Highlight.vue";
+
+    let snippet = `
+    class Example
+    {
+        public function __construct()
+        {
+            //
+        }
+    }
+    `.trim();
+
+</script>
