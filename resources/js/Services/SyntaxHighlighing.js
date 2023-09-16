@@ -15,7 +15,9 @@ export function highlight(selector) {
         return;
     }
 
-    document.querySelectorAll(selector + ' pre code').forEach(element => {
-        hljs.highlightElement(element);
-    });
+    document.querySelectorAll(selector + ' pre code').forEach(highlightElement);
+}
+
+export function highlightElement(element) {
+    hljs.highlightElement(element);
 }

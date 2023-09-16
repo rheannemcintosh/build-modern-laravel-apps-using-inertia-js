@@ -1,9 +1,9 @@
 <script>
-import {highlight} from "@/Services/SyntaxHighlighing.js";
+import {highlightElement} from "@/Services/SyntaxHighlighing.js";
 
 export default {
     mounted() {
-        highlight('#example2');
+        highlightElement(this.$refs.code);
     }
 };
 
@@ -33,7 +33,7 @@ export default {
 
     <div id="example2">
         <pre>
-            <code>
+            <code ref="code">
                 class ExampleTwo
                 {
                     public function __construct()
