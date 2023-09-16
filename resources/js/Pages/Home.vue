@@ -1,9 +1,11 @@
 <script>
+// import {highlightAll} from "@/Services/SyntaxHighlighing.js";
 import {highlight} from "@/Services/SyntaxHighlighing.js";
 
 export default {
     mounted() {
-        highlight();
+        // highlightAll();
+        highlight('#example2');
     }
 };
 
@@ -31,15 +33,17 @@ export default {
 
     <br>
 
-    <pre>
-        <code>
-            class ExampleTwo
-            {
-                public function __construct()
+    <div id="example2">
+        <pre>
+            <code>
+                class ExampleTwo
                 {
-                    //
+                    public function __construct()
+                    {
+                        //
+                    }
                 }
-            }
-        </code>
-    </pre>
+            </code>
+        </pre>
+    </div>
 </template>
