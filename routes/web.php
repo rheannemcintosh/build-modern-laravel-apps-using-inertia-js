@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ThreadsController;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,8 @@ Route::middleware('auth')->group(function() {
     Route::get('/', function () {
         return Inertia::render('Home');
     });
+
+    Route::get('/threads', [ThreadsController::class, 'index']);
 
     Route::get('/users', function () {
         return Inertia::render('Users/Index', [

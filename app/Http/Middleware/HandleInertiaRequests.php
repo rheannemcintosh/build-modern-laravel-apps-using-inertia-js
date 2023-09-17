@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\Resources\ThreadSnapshotResource;
+use App\Models\Thread;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Middleware;
@@ -42,7 +44,8 @@ class HandleInertiaRequests extends Middleware
                 'user' => [
                     'username' => Auth::user()->name
                 ]
-            ] : null
+            ] : null,
+            'latestThread' => ThreadSnapshotResource::make(Thread::latest()->first())->resolve()
         ]);
     }
 }
