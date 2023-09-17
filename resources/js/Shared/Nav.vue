@@ -16,7 +16,7 @@
             <li>
                 <NavLink
                     href="/users"
-                    :active="$page.component === 'Users'"
+                    :active="$page.component === 'Users/Index'"
                 >
                     Users
                 </NavLink>
@@ -24,7 +24,7 @@
             <li>
                 <NavLink
                     href="/threads"
-                    :active="$page.component === 'Threads'"
+                    :active="$page.component === 'Threads/Index'"
                 >
                     Threads
                 </NavLink>
