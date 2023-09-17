@@ -19,6 +19,9 @@
             <Nav />
         </header>
     </section>
+    <div class="bg-blue-950 text-white p-2 flex items-center justify-center">
+        <p class="text-sm"><span class="font-bold pr-2">Latest Thread:</span> <Link href="#" v-text="$page.props.latestThread.title" /></p>
+    </div>
 
     <section class="p-6">
         <div class="max-w-3xl mx-auto">
