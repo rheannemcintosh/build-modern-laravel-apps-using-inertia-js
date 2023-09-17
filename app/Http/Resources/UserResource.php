@@ -19,6 +19,7 @@ class UserResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'created_at' => $this->created_at,
+//            'follows' => $this->follows()->pluck('id'),
             'email' => $this->when(Auth::user()->is($this->resource), $this->email),
             'can' => [
                 'update' => Auth::user()->can('update', $this->resource)

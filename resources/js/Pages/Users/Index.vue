@@ -1,7 +1,8 @@
 <script setup>
-    import { ref, watch, defineAsyncComponent } from "vue";
+import {ref, watch, defineAsyncComponent, onMounted} from "vue";
     import { router } from "@inertiajs/vue3";
     import debounce from "lodash/debounce.js";
+    import { useCurrentUser } from "@/Composables/useCurrentUser.js";
 
 
     let Pagination = defineAsyncComponent(() => {
@@ -24,6 +25,8 @@
             replace: true
         });
     }, 300));
+
+    let currentUser = useCurrentUser();
 </script>
 
 <template>
