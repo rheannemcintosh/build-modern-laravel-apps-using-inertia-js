@@ -1,9 +1,15 @@
 <template>
-    <pre>
-        <code ref="block">
-            {{ code }}
-        </code>
-    </pre>
+    <div>
+        <header class="bg-gray-800 text-white flex justify-end px-2 py-1 text-xs border-b border-gray-700">
+            <button class="hover:bg-gray-600 rounded px-2">Copy</button>
+        </header>
+        <pre>
+            <code ref="block">
+                {{ code }}
+            </code>
+        </pre>
+
+    </div>
 </template>
 
 <script setup>
