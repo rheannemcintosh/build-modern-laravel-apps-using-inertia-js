@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ThreadResource;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Thread;
@@ -14,7 +15,7 @@ class ThreadsController extends Controller
     public function index()
     {
         return Inertia::render('Threads/Index', [
-            'threads' => Thread::take(50)->latest()->get()
+            'threads' => ThreadResource::collection(Thread::with('author')->take(50)->latest()->get())
         ]);
     }
 
